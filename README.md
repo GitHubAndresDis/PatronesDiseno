@@ -1,4 +1,4 @@
-# Patrones Diseno
+# Patrones de diseño
 Actividad de patrones de diseño - Informatica 1
 
 Patrones de diseño impementados
@@ -37,7 +37,7 @@ Existe ademas una clase llamada clsPelotaConBorde, esta básicamente recibe el o
         objDibujar.DibujarBorde(GenerarColor());
 
 
-# Patrón de comporamiento - Iterator
+# Patrón de comportamiento - Iterator
 
 Proporciona un modo de acceder secuencialmente a los elementos de un objeto agregado sin exponer su representación interna.
 
