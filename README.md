@@ -13,3 +13,4 @@ Se implementa este patrón en la creación de las pelotas rivales.
 Se crea una primera pelota rival.
 
 
+
