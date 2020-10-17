@@ -1,4 +1,4 @@
-# PatronesDiseno
+# Patrones Diseno
 Actividad de patrones de diseño - Informatica 1
 
 Patrones de diseño impementados
