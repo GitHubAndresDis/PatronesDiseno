@@ -36,3 +36,73 @@ Existe ademas una clase llamada clsPelotaConBorde, esta básicamente recibe el o
 	objDibujar = new clsPelotaConBorde(pelotaPrincipal)
         objDibujar.DibujarBorde(GenerarColor());
 
+
+# Patrón de comporamiento - Iterator
+
+Proporciona un modo de acceder secuencialmente a los elementos de un objeto agregado sin exponer su representación interna.
+
+Se implementa este patrón cuando se necesita almacenar la información de las pelotas, para al momento de validaciones realizar un recorrido de estas.
+
+La clase que iterador es esta, bueno la clase de la colección es clsColeccion.
+
+	class clsColeccion {
+
+	    constructor() {
+		this.indice = 0;
+		this.pelotas = new Array();
+	    }
+
+	    IniciarRecorrido(){
+		this.indice = 0;
+		return this.pelotas[this.indice];
+	    }
+
+	    AgregarElemeto(elemento){
+		this.pelotas.push(elemento);
+	    }
+
+	    Siguiente(){
+		this.indice += 1;
+		return this.pelotas[this.indice];
+	    }
+	}
+	
+	
+Como se instancia en AgarIO.js:
+
+	var pelotasJuego = new clsColeccion();
+
+
+Ejemplo del llenado de la colección
+
+	pelotasJuego.AgregarElemeto(nuevaPelota);
+
+
+Como se recorre la colección en este caso en la clase de validaciones.
+
+	var pelotaExitente = pelotas.IniciarRecorrido();
+
+            while(pelotaExitente != undefined){
+                    if((pelotaNueva.location_y + pelotaNueva.height) <= pelotaExitente.location_y && pelotaExitente.location_y <= pelotaNueva.location_y){
+                        resultado = false;
+                    } else if ((pelotaExitente.location_y + pelotaExitente.height) <= pelotaNueva.location_y && pelotaNueva.location_y <= pelotaExitente.location_y){
+                        resultado = false;
+                    }
+
+                    if((pelotaNueva.location_x + pelotaNueva.width) <= pelotaExitente.location_x && pelotaExitente.location_x <= pelotaNueva.location_x){
+                        resultado = false;
+                    } else if ((pelotaExitente.location_x + pelotaExitente.width) <= pelotaNueva.location_x && pelotaNueva.location_x <= pelotaExitente.location_x){
+                        resultado = false;
+                    }
+                pelotaExitente = pelotas.Siguiente();
+            }
+
+
+
+POR: DAINER ANDRES VERGARA RODRIGUEZ
+
+
+
+
+
+
