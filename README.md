@@ -24,6 +24,15 @@ Clonando este objeto se obtienen todos los demas objetos rivales.
 
 Añade dinámicamente nuevas responsabilidades a un objeto, proporcionando una alternativa flexible a la herencia para extender la funcionalidad.
 
+Se implementa este patrón cuando se agrega al dibujo de una pelota un borde adicional a esta pelota. 
 
+La clase encargada de dibujar una pelota es clsDibujar:
 
+	var objDibujar = new clsDibujar(pelotaPrincipal);
+        objDibujar.Dibujar('nuevo', divTablero);
+
+Existe ademas una clase llamada clsPelotaConBorde, esta básicamente recibe el objeto que ya esta pintado y pinta a este elemento un borde.
+
+	objDibujar = new clsPelotaConBorde(pelotaPrincipal)
+        objDibujar.DibujarBorde(GenerarColor());
 
