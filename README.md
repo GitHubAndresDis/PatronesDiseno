@@ -26,15 +26,11 @@ Añade dinámicamente nuevas responsabilidades a un objeto, proporcionando una a
 
 Se implementa este patrón cuando se agrega al dibujo de una pelota un borde adicional a esta pelota. 
 
-La clase encargada de dibujar una pelota es clsDibujar:
+La clase encargada de dibujar una pelota con borde apartir de una instancia de la pelota definida con la clase es clsDibujar es clsPelotaConBorde:
 
 	var objDibujar = new clsDibujar(pelotaPrincipal);
         objDibujar.Dibujar('nuevo', divTablero);
 
-Existe ademas una clase llamada clsPelotaConBorde, esta básicamente recibe el objeto que ya esta pintado y pinta a este elemento un borde.
-
-	objDibujar = new clsPelotaConBorde(pelotaPrincipal)
-        objDibujar.DibujarBorde(GenerarColor());
 
 
 # Patrón de comportamiento - Iterator
