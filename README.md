@@ -29,10 +29,46 @@ Se implementa este patrón cuando se agrega al dibujo de una pelota un borde adi
 La clase encargada de dibujar una pelota con borde apartir de una instancia de la pelota definida con la clase es clsDibujar es clsPelotaConBorde y se implemento de esta forma:
 
 	pelotaPrincipal = new clsPelota('pelota_1', true, GenerarColor(), validaciones.ValidarPosicionY(tamano, randomLocationY.GetValue()), validaciones.ValidarPosicionX(tamano, randomLocationX.GetValue()), tamano, tamano);
-	
         pelotaPrincipal = new clsPelotaConBorde(pelotaPrincipal);
         pelotaPrincipal.Dibujar(divTablero, GenerarColor());
 
+La clase clsPelota tiene su método para dibujar.
+
+	Dibujar(tipo, control = undefined) {
+		try {
+		    if(tipo == 'nuevo') {
+			var div = $('<div id="' + this.id + '"/>').addClass('pelota');
+			div.css('width', this.width + 'px');
+			div.css('height', this.height + 'px');
+			div.css('background-color', this.color);
+			div.css('left', this.location_x + 'px');
+			div.css('top', this.location_y + 'px');
+			control.append(div);
+		    } else if(tipo == 'posicion') {
+			$('#' + this.id).css('left', this.location_x + 'px');
+			$('#' + this.id).css('top', this.location_y + 'px');
+		    }
+		} catch(err){
+		    console.error('Error: clsDibujarPelota.Draw ' + err.toString());
+		}
+	    }
+
+Pero la clase clsPelotaConBorde implementa este método pero adicional de dibujar la pelota este le pone un borde.
+
+	Dibujar(control, colorBorde) {
+		try {
+		    var div = $('<div id="' + this.id + '"/>').addClass('pelota');
+		    div.css('width', this.width + 'px');
+		    div.css('height', this.height + 'px');
+		    div.css('background-color', this.color);
+		    div.css('left', this.location_x + 'px');
+		    div.css('top', this.location_y + 'px');
+		    div.css('border', '2px solid ' + colorBorde);
+		    control.append(div);
+		} catch(err){
+		    console.error('Error: clsDibujarPelota.Draw ' + err.toString());
+		}
+	    }
 
 
 # Patrón de comportamiento - Iterator
