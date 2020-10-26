@@ -26,15 +26,12 @@ $(document).ready(function () {
 function IniciarJuego() {
     try {
         pelotaPrincipal = new clsPelota('pelota_1', true, GenerarColor(), validaciones.ValidarPosicionY(tamano, randomLocationY.GetValue()), validaciones.ValidarPosicionX(tamano, randomLocationX.GetValue()), tamano, tamano);
+        pelotaPrincipal = new clsPelotaConBorde(pelotaPrincipal);
+        pelotaPrincipal.Dibujar(divTablero, GenerarColor());
 
         pelotaRival = new clsPelota('pelota_R', false, GenerarColor(), validaciones.ValidarPosicionY(tamano, randomLocationY.GetValue()), validaciones.ValidarPosicionX(tamano, randomLocationX.GetValue()), tamano, tamano);
 
-        var objDibujar = new clsDibujar(pelotaPrincipal);
-        objDibujar.Dibujar('nuevo', divTablero);
-
-        objDibujar = new clsPelotaConBorde(pelotaPrincipal)
-        objDibujar.DibujarBorde(GenerarColor());
-
+        PintarPelotasRivales();
     } catch (err) {
         console.error('Error: IniciarJuego ' + err.toString());
     }
